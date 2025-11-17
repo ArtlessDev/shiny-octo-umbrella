@@ -1,0 +1,120 @@
+{
+  "QuestIdentifier": "FirstQuest",
+  "StartingObjective": {
+    "objectiveTitle": "Getting the Trash",
+    "objectiveDescription": "I should take out the trash...\nbut whats the point",
+    "identifier": "part one",
+    "x": 128,
+    "y": 480,
+    "width": 32,
+    "height": 32,
+    "textureValue": 3,
+    "IsCompletedFlag": false,
+    "IsMainQuest": true,
+    "IsAutoTrigger": false
+  },
+  "MiddleObjective": {
+    "objectiveTitle": "Taking out da trash",
+    "objectiveDescription": "ok, i should get back,\n but theres no point",
+    "identifier": "",
+    "x": 810,
+    "y": 96,
+    "width": 32,
+    "height": 32,
+    "textureValue": 0,
+    "IsCompletedFlag": false,
+    "IsMainQuest": true,
+    "IsAutoTrigger": false
+  },
+  "EndingObjective": {
+    "objectiveTitle": "I am gonna go to sleep",
+    "objectiveDescription": " ",
+    "identifier": "final",
+    "x": 96,
+    "y": 416,
+    "width": 32,
+    "height": 32,
+    "textureValue": 2,
+    "IsCompletedFlag": false,
+    "IsMainQuest": true,
+    "IsAutoTrigger": false
+  },
+
+
+
+
+
+
+
+
+
+
+
+  "SideObjectives": [
+    {
+      "objectiveTitle": "I am gonna go to sleep",
+      "objectiveDescription": "yeah this is comfy \nbut i should take the trash\n out back first",
+      "identifier": "final",
+      "x": 96,
+      "y": 416,
+      "width": 32,
+      "height": 32,
+      "textureValue": 2,
+      "IsCompletedFlag": false,
+      "IsMainQuest": true,
+      "IsAutoTrigger": false
+    },
+    {
+      "objectiveTitle": "Carbsun",
+      "objectiveDescription": "looks like hes sleeping",
+      "identifier": "final",
+      "x": 96,
+      "y": 544,
+      "width": 32,
+      "height": 32,
+      "textureValue": 4,
+      "IsCompletedFlag": false,
+      "IsMainQuest": false,
+      "IsAutoTrigger": false
+    },
+    {
+      "objectiveTitle": "Death",
+      "objectiveDescription": "there is always a point child\nnow is not your time",
+      "identifier": "final",
+      "x": 128,
+      "y": 1024,
+      "width": 32,
+      "height": 32,
+      "textureValue": 7,
+      "IsCompletedFlag": false,
+      "IsMainQuest": false,
+      "IsAutoTrigger": false
+    },
+    {
+      "objectiveTitle": "SCREECHING",
+      "objectiveDescription": "SCREECHING",
+      "identifier": "final",
+      "x": 768,
+      "y": 512,
+      "width": 190,
+      "height": 128,
+      "textureValue": 11,
+      "IsCompletedFlag": false,
+      "IsMainQuest": false,
+      "IsAutoTrigger": true
+    },
+    {
+      "objectiveTitle": "SCREECHING",
+      "objectiveDescription": "Come closer, child\nDo not let my presence\ndeter you",
+      "identifier": "final",
+      "x": 456,
+      "y": 810,
+      "width": 308,
+      "height": 446,
+      "textureValue": 11,
+      "IsCompletedFlag": false,
+      "IsMainQuest": false,
+      "IsAutoTrigger": true
+    }
+  ]
+}

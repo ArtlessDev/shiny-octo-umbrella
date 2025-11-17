@@ -1,0 +1,16 @@
+{
+  [
+    "KeyObjective":
+    {
+      "objectiveTitle": "I am gonna go to sleep",
+      "objectiveDescription": "goin to sleep",
+      "identifier": "final",
+      "x": 160,
+      "y": 1024,
+      "width": 32,
+      "height": 32,
+      "textureValue": 6,
+      "IsCompletedFlag": false
+    }
+  ]
+}
