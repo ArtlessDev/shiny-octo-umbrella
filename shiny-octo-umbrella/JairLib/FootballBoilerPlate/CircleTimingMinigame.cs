@@ -21,7 +21,7 @@ namespace JairLib.FootballBoilerPlate
         public static CircleTimingMinigameObject IntendedObject = new();
         public static bool shrinkGame = false;
         public static float SizeDifferences = 0;
-        public static async void LeftClicked(Quarterback qb)
+        public static async void PassingMinigame(Quarterback qb)
         {
 
             if (!shrinkGame)
@@ -57,8 +57,8 @@ namespace JairLib.FootballBoilerPlate
                 if (Globals.mouseState.WasButtonPressed(MouseButton.Left))
                 {
                     SizeDifferences = IntendedObject.RectangleSize - PlayerInputObject.RectangleSize;
-                    GameState.CurrentState = FootballStates.GeneratePlayer;
-                    Debug.WriteLine($"Size Difference between rectangles was: {SizeDifferences}");
+                    GameState.CurrentState = FootballStates.HandlePass;
+                    //Debug.WriteLine($"Size Difference between rectangles was: {SizeDifferences}");
                     shrinkGame = false;
                     return;
                 }
@@ -67,6 +67,7 @@ namespace JairLib.FootballBoilerPlate
 
         public static void Draw(SpriteBatch sb)
         {
+            sb.Draw(GameState.PlayersTeam[0].texture, GameState.PlayersTeam[0].rectangle, GameState.PlayersTeam[0].color);
             sb.Draw(IntendedObject.texture, IntendedObject.rectangle, IntendedObject.color);
             sb.Draw(PlayerInputObject.texture, PlayerInputObject.rectangle, PlayerInputObject.color);
         }

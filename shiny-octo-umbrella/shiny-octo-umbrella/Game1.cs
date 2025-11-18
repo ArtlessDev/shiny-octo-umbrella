@@ -81,6 +81,13 @@ namespace shiny_octo_umbrella
 
                     if (Globals.mouseState.WasButtonPressed(MouseButton.Left) && Globals.mouseRect.Intersects(new Rectangle((int)obj.absolutePosition.X, (int)obj.absolutePosition.Y, 64, 64)))
                     {
+                        //this is the crude way of centering the QB, need to isolate this portion and make it generic for other objects as this is something thats been slowing me down
+                        obj.rectangle = new(
+                            (int)Globals.MainCamera.Center.X-32,//(int)Globals.MainCamera.Position.X+(Globals.mapWidth*32), 
+                            (int)Globals.MainCamera.Position.Y + 600,//(int)(Globals.MainCamera.Position.Y + (Globals.MainCamera.BoundingRectangle.Bottom * 32)), 
+                            obj.rectangle.Width, 
+                            obj.rectangle.Height);
+
                         GameState.PlayersTeam.Add(obj); 
                         GameState.CurrentState = FootballStates.RunPlay;
                         return;
@@ -98,13 +105,13 @@ namespace shiny_octo_umbrella
 
                 Quarterback qb = (Quarterback)GameState.PlayersTeam[0];
 
-                CircleTimingMinigame.LeftClicked(qb);
+                CircleTimingMinigame.PassingMinigame(qb);
             
             }
 
             if (GameState.CurrentState == FootballStates.HandlePass)
             {
-
+                HandlePass.Update();
             }
             // TODO: Add your update logic here
 
@@ -122,11 +129,21 @@ namespace shiny_octo_umbrella
             map.DrawMapFromList(_spriteBatch);
 
             if (GameState.CurrentState == FootballStates.DraftPlayer)
+            {
                 GameState.DraftDraw(_spriteBatch);
+            }
 
             if (GameState.CurrentState == FootballStates.RunPlay)
             {
                 CircleTimingMinigame.Draw(_spriteBatch);
+                
+                _spriteBatch.Draw(Globals.pigskinSprite, new Rectangle(GameState.PlayersTeam[0].rectangle.X-64, GameState.PlayersTeam[0].rectangle.Y, GameState.PlayersTeam[0].rectangle.Width, GameState.PlayersTeam[0].rectangle.Height), GameState.PlayersTeam[0].color);
+
+            }
+
+            if (GameState.CurrentState == FootballStates.HandlePass)
+            {
+                HandlePass.Draw(_spriteBatch);
             }
 
             if (GameState.CurrentState == FootballStates.HandlePass)

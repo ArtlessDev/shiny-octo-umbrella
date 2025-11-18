@@ -65,3 +65,9 @@ public enum FootballStates
     RunPlay,
     HandlePass
 }
+
+public enum DominantHand
+{
+    Left,
+    Right,
+}

@@ -17,7 +17,7 @@ namespace JairLib
         public static int mapHeight = 40;
         public static int TileSize = 64;
 
-        public static Texture2D puzzleSet, gameObjectSet;
+        public static Texture2D puzzleSet, gameObjectSet, pigskinSprite;
         public static Texture2DAtlas atlas, gameObjectAtlas;
         public static int PUZZLE_SIZE = 25;
         public static int PUZZLE_SIZE_ADJUSTED = (int)(2 + Math.Sqrt(PUZZLE_SIZE)) * (int)(2 + Math.Sqrt(PUZZLE_SIZE));
@@ -47,10 +47,12 @@ namespace JairLib
             //atlas = Texture2DAtlas.Create("tileSpaceSet", puzzleSet, 32, 32);
             //spriteSheet = new SpriteSheet("SpriteSheet/tileSpaceSetJSON", atlas);
             
-            gameObjectSet = GlobalContent.Load<Texture2D>(".\\Sprites\\footBallSprites");
+            gameObjectSet = GlobalContent.Load<Texture2D>(".\\Sprites\\footballSprites");
             gameObjectAtlas = Texture2DAtlas.Create("gameObjectSet", gameObjectSet, 64, 64);
             gameObjectSheet = new SpriteSheet("SpriteSheet/gameObjectJSON", gameObjectAtlas);
-            
+
+            pigskinSprite = GlobalContent.Load<Texture2D>("./Sprites/pigskin");
+
             font = GlobalContent.Load<SpriteFont>("File");
             tileSpaces = new List<TileSpace>();
             //QuestSystem.SetFirstQuestAsCurrent();

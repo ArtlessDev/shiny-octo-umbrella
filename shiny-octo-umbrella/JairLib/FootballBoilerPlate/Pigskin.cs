@@ -9,14 +9,25 @@ namespace JairLib.FootballBoilerPlate
 {
     public class Pigskin : AnyObject
     {
-        public Pigskin()
+        public Pigskin(Quarterback qb)
         {
-
+            Velocity = 10f;
+            IntendedLandingSpot = new(Globals.mouseRect.X, Globals.mouseRect.Y);
+            ActualLandingSpot = new (qb.ThrowingAccuracy * Globals.mouseRect.X, qb.ThrowingAccuracy * Globals.mouseRect.Y);
         }
 
         public float Velocity;
         public Vector2 IntendedLandingSpot;
         public Vector2 ActualLandingSpot;
 
+        public void Update()
+        {
+
+        }
+
+        public void Draw()
+        {
+
+        }
     }
 }

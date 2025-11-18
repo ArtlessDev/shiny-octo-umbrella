@@ -33,7 +33,7 @@ namespace JairLib.FootballBoilerPlate
                 case 99:
                     return Color.Gold;
                 case > 88:
-                    return Color.Lavender;
+                    return Color.Purple;
                 case > 80:
                     return Color.LightBlue;
                 case > 70:
@@ -41,11 +41,13 @@ namespace JairLib.FootballBoilerPlate
                 case > 50:
                     return Color.White;
                 case > 30:
-                    return Color.Yellow;
+                    return Color.Orange;
                 default: 
                     return Color.Red;
             }
         }
+
+        public DominantHand handedness;
 
         public Color reservedColor;
         public PlayerSide PlayerSide;
@@ -62,6 +64,7 @@ namespace JairLib.FootballBoilerPlate
 
         public Quarterback()
         {
+            handedness = DominantHand.Left;
             NumberId = Random.Shared.Next(0, 99);
             ThrowingSpeed = 50;
             ThrowingStrength = 50;
