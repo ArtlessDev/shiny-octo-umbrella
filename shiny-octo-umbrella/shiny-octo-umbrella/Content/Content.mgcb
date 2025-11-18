@@ -25,6 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/footballSprites.png
 
-#begin TiledWork/gridironField..csv
-/copy:TiledWork/gridironField..csv
+#begin TiledWork/gridironField.csv
+/copy:TiledWork/gridironField.csv
 

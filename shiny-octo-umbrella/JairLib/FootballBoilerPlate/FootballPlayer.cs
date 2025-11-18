@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,14 @@ namespace JairLib.FootballBoilerPlate
     {
         public FootballPlayer()
         {
-
+            color = Color.White;
+            rectangle = new Rectangle(0, 0, 64, 64);
+        }
+        
+        public FootballPlayer(Vector2 vec)
+        {
+            color = Color.White;
+            rectangle = new Rectangle((int)vec.X, (int)vec.Y, 64, 64);
         }
 
         public PlayerSide PlayerSide;
@@ -33,6 +41,18 @@ namespace JairLib.FootballBoilerPlate
         public Quarterback()
         {
             NumberId = Random.Shared.Next(0, 99);
+            ThrowingSpeed = 50;
+            ThrowingStrength = 50;
+            ThrowingAccuracy = 50;
+            texture = Globals.gameObjectAtlas[6]; //blue
+        }
+        public Quarterback(Vector2 vec)
+        {
+            NumberId = Random.Shared.Next(0, 99);
+            color = Color.White;
+            rectangle = new Rectangle((int)vec.X, (int)Globals.MainCamera.Position.Y, Globals.TileSize, Globals.TileSize); //Globals.TileSize * i, )
+            absolutePosition = new Vector3((int)vec.X, 0, 1);
+            texture = Globals.gameObjectAtlas[6]; //blue
         }
 
         public void ThrowBall()

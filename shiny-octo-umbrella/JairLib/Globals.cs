@@ -13,6 +13,9 @@ namespace JairLib
     {
         public static ContentManager GlobalContent;
 
+        public static int mapWidth = 20;
+        public static int mapHeight = 40;
+        public static int TileSize = 64;
 
         public static Texture2D puzzleSet, gameObjectSet;
         public static Texture2DAtlas atlas, gameObjectAtlas;
@@ -20,19 +23,20 @@ namespace JairLib
         public static int PUZZLE_SIZE_ADJUSTED = (int)(2 + Math.Sqrt(PUZZLE_SIZE)) * (int)(2 + Math.Sqrt(PUZZLE_SIZE));
         public static SpriteSheet spriteSheet, gameObjectSheet;
         public static List<TileSpace> tileSpaces;
-        public static int mapWidth = 30;
-        public static int mapHeight = 20;
-        public static int TileSize = 64;
+
 
         public static KeyboardStateExtended keyb;
+        public static Rectangle mouseRect;
+        public static MouseStateExtended mouseState;
+
         public static string seed;
         public static string[] gridSeed;
         public static SpriteFont font;
         public static int currentLevel = 1;
         public static int CountOfTiles = 8;
 
-        public static int ViewportHeight = 480;
-        public static int ViewportWidth = 800;
+        public static int ViewportHeight = 720;//480;
+        public static int ViewportWidth = 1280;//800;
         public static OrthographicCamera MainCamera;
 
         public static Vector2 STARTING_POSITION = new Vector2(128,128);
@@ -56,6 +60,10 @@ namespace JairLib
         {
             KeyboardExtended.Update();
             keyb = KeyboardExtended.GetState();
+
+
+            MouseExtended.Update();
+            mouseState = MouseExtended.GetState();
         }
 
         /// <summary>

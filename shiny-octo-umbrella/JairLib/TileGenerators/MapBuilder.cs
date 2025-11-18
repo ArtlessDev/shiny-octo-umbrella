@@ -16,7 +16,7 @@ namespace JairLib.TileGenerators
             //var defaultFilePath = "C:\\Code\\Jamsepticeye-submission\\JamSepticEyeGame\\JamSepticEyeGame\\Content\\Sprites\\test.csv";
             
             //filePath = ".\\Content\\grayboxedMap.csv";
-            filePath = ".\\Content\\MapCsvFiles\\GrayBoxTrialMap.csv";
+            filePath = ".\\Content\\TiledWork\\gridironField.csv";
             
             Spaces = new List<TileSpace>();
 
