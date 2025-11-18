@@ -42,6 +42,7 @@ namespace JairLib.FootballBoilerPlate
             {
                 //Debug.WriteLine($"{obj.NumberId}  {obj.rectangle}");
                 sb.Draw(obj.texture, new Vector2(obj.rectangle.X, obj.rectangle.Y), obj.color);
+                sb.DrawString(Globals.font, obj.NumberId.ToString(), new Vector2(obj.rectangle.X, obj.rectangle.Y), Color.White);
             }
         }
     }

@@ -51,7 +51,7 @@ namespace JairLib
             gameObjectAtlas = Texture2DAtlas.Create("gameObjectSet", gameObjectSet, 64, 64);
             gameObjectSheet = new SpriteSheet("SpriteSheet/gameObjectJSON", gameObjectAtlas);
             
-            //font = GlobalContent.Load<SpriteFont>("File");
+            font = GlobalContent.Load<SpriteFont>("File");
             tileSpaces = new List<TileSpace>();
             //QuestSystem.SetFirstQuestAsCurrent();
         }

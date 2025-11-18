@@ -59,6 +59,7 @@ namespace shiny_octo_umbrella
 
             if (GameState.CurrentState == FootballStates.GeneratePlayer)
             {
+                GameState.DraftablePlayers.Clear();
                 GameState.GeneratePlayers(9);
 
 
@@ -75,22 +76,36 @@ namespace shiny_octo_umbrella
                     }
                     else
                     {
-                        obj.color = Color.LightGray;
+                        obj.color = obj.reservedColor;
                     }
 
+                    if (Globals.mouseState.WasButtonPressed(MouseButton.Left) && Globals.mouseRect.Intersects(new Rectangle((int)obj.absolutePosition.X, (int)obj.absolutePosition.Y, 64, 64)))
+                    {
+                        GameState.PlayersTeam.Add(obj); 
+                        GameState.CurrentState = FootballStates.RunPlay;
+                        return;
+                    }
                 }
+
             }
 
             if (GameState.CurrentState == FootballStates.RunPlay)
             {
-                if (Globals.mouseState.WasButtonPressed(MouseButton.Left))
-                {
-                    Quarterback qb = (Quarterback)GameState.PlayersTeam[0];
+                ///<summary>
+                ///need to check out that new monogame library with all the shapes. need to brainstorm and test out different minigame styles
+                ///
+                /// </summary>
 
-                    qb.ThrowBall();
-                }
+                Quarterback qb = (Quarterback)GameState.PlayersTeam[0];
+
+                CircleTimingMinigame.LeftClicked(qb);
+            
             }
 
+            if (GameState.CurrentState == FootballStates.HandlePass)
+            {
+
+            }
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -108,6 +123,16 @@ namespace shiny_octo_umbrella
 
             if (GameState.CurrentState == FootballStates.DraftPlayer)
                 GameState.DraftDraw(_spriteBatch);
+
+            if (GameState.CurrentState == FootballStates.RunPlay)
+            {
+                CircleTimingMinigame.Draw(_spriteBatch);
+            }
+
+            if (GameState.CurrentState == FootballStates.HandlePass)
+            {
+                HandlePass.Draw(_spriteBatch);
+            }
 
             _spriteBatch.End();
 

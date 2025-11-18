@@ -62,5 +62,6 @@ public enum FootballStates
     None,
     GeneratePlayer,
     DraftPlayer,
-    RunPlay
+    RunPlay,
+    HandlePass
 }

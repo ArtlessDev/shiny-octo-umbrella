@@ -26,6 +26,28 @@ namespace JairLib.FootballBoilerPlate
             rectangle = new Rectangle((int)vec.X, (int)vec.Y, 64, 64);
         }
 
+        public Color SetColor()
+        {
+            switch (NumberId)
+            {
+                case 99:
+                    return Color.Gold;
+                case > 88:
+                    return Color.Lavender;
+                case > 80:
+                    return Color.LightBlue;
+                case > 70:
+                    return Color.LightGreen;
+                case > 50:
+                    return Color.White;
+                case > 30:
+                    return Color.Yellow;
+                default: 
+                    return Color.Red;
+            }
+        }
+
+        public Color reservedColor;
         public PlayerSide PlayerSide;
         public float Speed;
         public float Stamina;
@@ -49,7 +71,8 @@ namespace JairLib.FootballBoilerPlate
         public Quarterback(Vector2 vec)
         {
             NumberId = Random.Shared.Next(0, 99);
-            color = Color.White;
+            color = SetColor();
+            reservedColor = color;
             rectangle = new Rectangle((int)vec.X, (int)Globals.MainCamera.Position.Y, Globals.TileSize, Globals.TileSize); //Globals.TileSize * i, )
             absolutePosition = new Vector3((int)vec.X, 0, 1);
             texture = Globals.gameObjectAtlas[6]; //blue
@@ -57,7 +80,7 @@ namespace JairLib.FootballBoilerPlate
 
         public void ThrowBall()
         {
-            throw new NotImplementedException();
+            
         }
     }
     
