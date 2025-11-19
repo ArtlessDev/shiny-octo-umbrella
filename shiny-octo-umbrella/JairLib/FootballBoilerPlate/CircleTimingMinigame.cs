@@ -58,6 +58,8 @@ namespace JairLib.FootballBoilerPlate
                 {
                     SizeDifferences = IntendedObject.RectangleSize - PlayerInputObject.RectangleSize;
                     GameState.CurrentState = FootballStates.HandlePass;
+                    HandlePass.SelectedPos = new(Globals.mouseRect.X, Globals.mouseRect.Y);
+                    HandlePass.pigskin.rectangle = GameState.PlayersTeam[0].rectangle;//new Rectangle(GameState.PlayersTeam[0].rectangle.X - 64, GameState.PlayersTeam[0].rectangle.Y, GameState.PlayersTeam[0].rectangle.Width, GameState.PlayersTeam[0].rectangle.Height);
                     //Debug.WriteLine($"Size Difference between rectangles was: {SizeDifferences}");
                     shrinkGame = false;
                     return;

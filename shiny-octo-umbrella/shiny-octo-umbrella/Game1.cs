@@ -111,6 +111,7 @@ namespace shiny_octo_umbrella
 
             if (GameState.CurrentState == FootballStates.HandlePass)
             {
+                HandlePass.Setup();
                 HandlePass.Update();
             }
             // TODO: Add your update logic here
@@ -143,13 +144,16 @@ namespace shiny_octo_umbrella
 
             if (GameState.CurrentState == FootballStates.HandlePass)
             {
+                _spriteBatch.Draw(Globals.pigskinSprite, HandlePass.pigskin.rectangle, GameState.PlayersTeam[0].color);
+
                 HandlePass.Draw(_spriteBatch);
+
             }
 
-            if (GameState.CurrentState == FootballStates.HandlePass)
-            {
-                HandlePass.Draw(_spriteBatch);
-            }
+            //if (GameState.CurrentState == FootballStates.HandlePass)
+            //{
+            //    HandlePass.Draw(_spriteBatch);
+            //}
 
             _spriteBatch.End();
 
