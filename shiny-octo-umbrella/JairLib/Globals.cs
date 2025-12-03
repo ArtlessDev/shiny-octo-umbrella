@@ -1,4 +1,5 @@
-﻿using JairLib.TileGenerators;
+﻿using JairLib.FootballBoilerPlate;
+using JairLib.TileGenerators;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -119,6 +120,21 @@ namespace JairLib
             //SeedBuilder.DrawSeedGridFromList(_spriteBatch, map);
         }
 
-        
+        public static bool CheckMouseIntersection(AnyObject obj)
+        {
+            return mouseRect.Intersects(new Rectangle((int)obj.absolutePosition.X, (int)obj.absolutePosition.Y, TileSize, TileSize));
+        }
+
+        public static void IsMouseHovering(FootballPlayer obj)
+        {
+            if (CheckMouseIntersection(obj))
+            {
+                obj.color = Color.White;
+            }
+            else
+            {
+                obj.color = obj.reservedColor;
+            }
+        }
     }
 }

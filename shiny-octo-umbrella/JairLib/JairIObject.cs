@@ -62,8 +62,10 @@ public enum FootballStates
     None,
     GeneratePlayer,
     DraftPlayer,
+    PickPlay,
+    PlaceReceivers,
     RunPlay,
-    HandlePass
+    HandlePass,
 }
 
 public enum DominantHand

@@ -1,13 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using JairLib;
+using JairLib.FootballBoilerPlate;
+using JairLib.TileGenerators;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using JairLib.FootballBoilerPlate;
-using JairLib;
 using MonoGame.Extended;
-using MonoGame.Extended.ViewportAdapters;
-using JairLib.TileGenerators;
 using MonoGame.Extended.Input;
-using System.Diagnostics;
+using MonoGame.Extended.ViewportAdapters;
 using System.Linq;
 
 namespace shiny_octo_umbrella
@@ -60,8 +59,7 @@ namespace shiny_octo_umbrella
             if (GameState.CurrentState == FootballStates.GeneratePlayer)
             {
                 GameState.DraftablePlayers.Clear();
-                GameState.GeneratePlayers(9);
-
+                GameState.GeneratePlayers(3);
 
                 GameState.CurrentState = FootballStates.DraftPlayer;
             }
@@ -70,16 +68,9 @@ namespace shiny_octo_umbrella
             {
                 foreach (var obj in GameState.DraftablePlayers.ToList())
                 {
-                    if (Globals.mouseRect.Intersects(new Rectangle((int)obj.absolutePosition.X, (int)obj.absolutePosition.Y, 64, 64)))
-                    {
-                        obj.color = Color.White;
-                    }
-                    else
-                    {
-                        obj.color = obj.reservedColor;
-                    }
+                    Globals.IsMouseHovering(obj);
 
-                    if (Globals.mouseState.WasButtonPressed(MouseButton.Left) && Globals.mouseRect.Intersects(new Rectangle((int)obj.absolutePosition.X, (int)obj.absolutePosition.Y, 64, 64)))
+                    if (Globals.mouseState.WasButtonPressed(MouseButton.Left) && Globals.CheckMouseIntersection(obj))
                     {
                         //this is the crude way of centering the QB, need to isolate this portion and make it generic for other objects as this is something thats been slowing me down
                         obj.rectangle = new(
@@ -88,11 +79,24 @@ namespace shiny_octo_umbrella
                             obj.rectangle.Width, 
                             obj.rectangle.Height);
 
-                        GameState.PlayersTeam.Add(obj); 
-                        GameState.CurrentState = FootballStates.RunPlay;
+                        GameState.PlayersTeam.Add(obj);
+                        
+                        GameState.CurrentState = GameState.IsFirstDraft? FootballStates.GeneratePlayer : FootballStates.PickPlay;
+                        GameState.IsFirstDraft = false;
+
                         return;
                     }
                 }
+
+            }
+
+            if (GameState.CurrentState == FootballStates.PickPlay)
+            {
+
+            }
+
+            if (GameState.CurrentState == FootballStates.PlaceReceivers)
+            {
 
             }
 

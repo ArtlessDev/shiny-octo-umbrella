@@ -22,16 +22,24 @@ namespace JairLib.FootballBoilerPlate
             
         }
 
+        public static bool IsFirstDraft = true;
         public static List<FootballPlayer> GeneratePlayers(int NumOfPlayers)
         {
             //List<FootballPlayer> result = new List<FootballPlayer>();
-
-            for (int i = 0; i<NumOfPlayers; i++)
+            if (IsFirstDraft)
             {
-                DraftablePlayers.Add(new Quarterback(new Vector2(Globals.TileSize * i, Globals.MainCamera.Position.Y)));//Globals.MainCamera.Center.Y)));
-                //Debug.WriteLine($"{DraftablePlayers[i].NumberId}  {DraftablePlayers[i].rectangle}");
+                for (int i = 0; i < NumOfPlayers; i++)
+                {
+                    DraftablePlayers.Add(new Quarterback(new Vector2(Globals.TileSize * i, Globals.MainCamera.Position.Y)));//Globals.MainCamera.Center.Y)));                                                                                                           //Debug.WriteLine($"{DraftablePlayers[i].NumberId}  {DraftablePlayers[i].rectangle}");
+                }
+                return DraftablePlayers;
             }
 
+            for (int i = 0; i < NumOfPlayers; i++)
+            {
+                DraftablePlayers.Add(new WideReceiver(new Vector2(Globals.TileSize * i, Globals.MainCamera.Position.Y)));//Globals.MainCamera.Center.Y)));
+                //Debug.WriteLine($"{DraftablePlayers[i].NumberId}  {DraftablePlayers[i].rectangle}");
+            }
 
             return DraftablePlayers;
         }

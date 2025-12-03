@@ -3,8 +3,9 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "gridironField.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
         "C:/Code/Snippets_1/TiledProjects/GrayBoxMap.tmx": {
@@ -15,13 +16,20 @@
                 "y": 675.8333333333333
             }
         },
+        "C:/Code/Snippets_1/TiledProjects/grayboxTileSet.tsx": {
+            "scaleInDock": 1
+        },
         "gridironField.tmx": {
-            "scale": 0.33,
+            "scale": 0.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 750,
-                "y": 1477.2727272727275
+                "x": 645,
+                "y": 1913
             }
+        },
+        "shiny-octo-umbrella.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
     "last.exportedFilePath": "C:/Code/shiny-octo-umbrella/shiny-octo-umbrella/shiny-octo-umbrella/Content/TiledWork",
@@ -33,9 +41,15 @@
     "map.tileWidth": 64,
     "map.width": 20,
     "openFiles": [
+        "gridironField.tmx",
+        "shiny-octo-umbrella.tsx",
+        "C:/Code/Snippets_1/TiledProjects/GrayBoxMap.tmx"
     ],
     "project": "football.tiled-project",
     "recentFiles": [
+        "C:/Code/Snippets_1/TiledProjects/GrayBoxMap.tmx",
+        "shiny-octo-umbrella.tsx",
+        "gridironField.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

@@ -25,31 +25,26 @@ namespace JairLib.FootballBoilerPlate
                 return;
 
             var adjustedSizeDifference = CircleTimingMinigame.SizeDifferences * 100f;
-            //Debug.WriteLine($"Size Difference between rectangles was: {adjustedSizeDifference}");
-            //while (pigskin.rectangle.X != SelectedPos)
-            
+            //seeing frame drops very early on in development, we're talkin' 11/19/2025, only a few builds in but this will definitely need to be reconstructed
             triggerTimes += .01f;
             var lerpedX = MathHelper.Lerp(startPos.X, SelectedPos.X, triggerTimes);
             var lerpedY = MathHelper.Lerp(startPos.Y, SelectedPos.Y, triggerTimes);
             //ball needs to travel from starting point where we see it at the RunPlay state
             //then it needs to move to the SelectedPos
             //Debug.WriteLine($"lerp x: {lerpedX} lerp y: {lerpedX}");
-            Debug.WriteLine($"lerp triggered at {triggerTimes}");
             //math is wrong here somewhere
             var adjustedX = (int)lerpedX;//(int)(Globals.MainCamera.Position.X + lerpedX);
             var adjustedY = (int)(lerpedY + Globals.MainCamera.Position.Y);//(int)(Globals.MainCamera.Position.Y + lerpedY);
-            //Debug.WriteLine($"selected x: {SelectedPos.X} selected y: {SelectedPos.Y}");
-            //Debug.WriteLine($"starting x: {startPos.X} starting y: {startPos.Y}");
-            //Debug.WriteLine($"lerp x: {lerpedX} lerp y: {lerpedY}");
-            //Debug.WriteLine($"adj x: {adjustedX} adj y: {adjustedY}");
             pigskin.rectangle = new(adjustedX, adjustedY, pigskin.rectangle.Width, pigskin.rectangle.Height);
             
             if (triggerTimes >= 1f)
             {
                 CompletedFlag = true;
-                //Debug.WriteLine($"{triggerTimes}");
                 GameState.CurrentState = FootballStates.GeneratePlayer;
                 triggerTimes = 0;
+                SetupFlag = true;
+                pigskin.rectangle = new ((int)startPos.X, (int)startPos.Y, pigskin.rectangle.Width, pigskin.rectangle.Height);
+
                 //need to reset values once this is hit, otherwise we can only run this once
             }
         }
@@ -61,6 +56,8 @@ namespace JairLib.FootballBoilerPlate
 
             startPos = new Vector2(pigskin.rectangle.X-Globals.MainCamera.Position.X, pigskin.rectangle.Y-Globals.MainCamera.Position.Y);
             SetupFlag = false;
+            CompletedFlag = false;
+
         }
         public static void Draw(SpriteBatch sb)
         {

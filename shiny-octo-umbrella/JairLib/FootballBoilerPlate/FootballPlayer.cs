@@ -17,7 +17,7 @@ namespace JairLib.FootballBoilerPlate
         public FootballPlayer()
         {
             color = Color.White;
-            rectangle = new Rectangle(0, 0, 64, 64);
+            rectangle = new Rectangle(0, 0, Globals.TileSize, Globals.TileSize);
         }
         
         public FootballPlayer(Vector2 vec)
@@ -77,7 +77,7 @@ namespace JairLib.FootballBoilerPlate
             color = SetColor();
             reservedColor = color;
             rectangle = new Rectangle((int)vec.X, (int)Globals.MainCamera.Position.Y, Globals.TileSize, Globals.TileSize); //Globals.TileSize * i, )
-            absolutePosition = new Vector3((int)vec.X, 0, 1);
+            absolutePosition = new Vector3((int)vec.X, 64, 1);
             texture = Globals.gameObjectAtlas[6]; //blue
         }
 
@@ -91,9 +91,14 @@ namespace JairLib.FootballBoilerPlate
     {
         public int CatchAbilityRating;
 
-        public WideReceiver()
+        public WideReceiver(Vector2 vec)
         {
-
+            NumberId = Random.Shared.Next(0, 99);
+            color = SetColor();
+            reservedColor = color;
+            rectangle = new Rectangle((int)vec.X, (int)Globals.MainCamera.Position.Y, Globals.TileSize, Globals.TileSize); //Globals.TileSize * i, )
+            absolutePosition = new Vector3((int)vec.X, 64, 1);
+            texture = Globals.gameObjectAtlas[7];
         }
     }
         
